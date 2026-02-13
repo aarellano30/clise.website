@@ -1,0 +1,80 @@
+@import "@fontsource-variable/inter/opsz.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@import "preline/variants.css";
+@source "../../node_modules/preline/dist/*.js";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Prevent layout shift by always showing scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+@theme {
+  --font-sans: "Inter Variable", sans-serif;
+  --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Preline: Add pointer cursor to buttons */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Fade in on scroll animations */
+@layer utilities {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-fast {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .fade-in-fast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-slow {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in-slow.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Delay variants for staggered animations */
+  .fade-in-delay-100.is-visible {
+    transition-delay: 100ms;
+  }
+
+  .fade-in-delay-200.is-visible {
+    transition-delay: 200ms;
+  }
+
+  .fade-in-delay-300.is-visible {
+    transition-delay: 300ms;
+  }
+
+  .fade-in-delay-400.is-visible {
+    transition-delay: 400ms;
+  }
+}

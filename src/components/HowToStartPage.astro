@@ -1,0 +1,91 @@
+---
+import { getImage } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { useTranslations, getLocalePath } from '../i18n/utils';
+import type { Locale } from '../i18n/utils';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
+const contactPath = getLocalePath(lang, 'contact');
+
+const entries = await getCollection('howToStartImages');
+const entry = entries.find((e) => e.id === 'images');
+const sources = entry?.data.images ?? [];
+
+const optimized = await Promise.all(
+	sources.map((src) => getImage({ src, width: 800, height: 1000, fit: 'cover' }))
+);
+const imageUrls = optimized.map((img) => img.src);
+
+const steps = [
+	{ num: 1, titleKey: 'howToStart.step1.title', descKey: undefined },
+	{ num: 2, titleKey: 'howToStart.step2.title', descKey: 'howToStart.step2.description' },
+	{ num: 3, titleKey: 'howToStart.step3.title', descKey: 'howToStart.step3.description' },
+	{ num: 4, titleKey: 'howToStart.step4.title', descKey: 'howToStart.step4.description' },
+	{ num: 5, titleKey: 'howToStart.step5.title', descKey: 'howToStart.step5.description' },
+] as const;
+---
+
+<div class="bg-gray-900">
+	<div class="mx-auto max-w-5xl px-6 py-24 sm:py-32 lg:px-8">
+		<!-- Title -->
+		<div class="mb-10 max-w-3xl lg:mb-14">
+			<h1 class="fade-in text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+				{t('howToStart.title')}
+			</h1>
+		</div>
+
+		<!-- Grid -->
+		<div class="fade-in fade-in-delay-100 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+			<!-- Timeline -->
+			<div class="lg:order-last">
+				<div class="mb-4">
+					<h3 class="text-xs font-medium uppercase tracking-wide text-indigo-500">
+						{t('howToStart.stepsLabel')}
+					</h3>
+				</div>
+
+				{steps.map((step) => (
+					<div class="ms-1 flex gap-x-5">
+						<div class="relative after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-white/10 last:after:hidden">
+							<div class="relative z-10 flex size-8 items-center justify-center">
+								<span class="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-s font-semibold text-indigo-500">
+									{step.num}
+								</span>
+							</div>
+						</div>
+						<div class="grow pt-0.5 pb-8 sm:pb-12">
+							<p class="text-sm text-gray-400 lg:text-base">
+								<span class="text-white">{t(step.titleKey)}{step.descKey && '.'}</span>
+								{step.descKey && ` ${t(step.descKey)}`}
+							</p>
+						</div>
+					</div>
+				))}
+
+				<a
+					href={contactPath}
+					class="inline-flex items-center gap-x-2 rounded-full bg-indigo-800 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
+				>
+					{t('cta.getQuote')}
+				</a>
+			</div>
+
+			<!-- Image -->
+			<div class="overflow-hidden rounded-2xl ring-1 ring-white/10 bg-gray-800 lg:order-first">
+				{imageUrls.length > 0 && (
+					<img id="start-img" class="block w-full object-cover aspect-[4/5]" src={imageUrls[0]} />
+				)}
+			</div>
+		</div>
+	</div>
+</div>
+
+{imageUrls.length > 1 && (
+	<script is:inline define:vars={{ imageUrls }}>
+		const img = document.getElementById('start-img');
+		if (img) {
+			img.src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+		}
+	</script>
+)}

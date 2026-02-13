@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
+import { useTranslations, getLocalePath, getHomePath } from '../i18n/utils';
+import logoClise from '../assets/images/home/logo-clise.png';
+import type { Locale } from '../i18n/utils';
+
+interface Props {
+	currentPath: string;
+	lang: Locale;
+}
+
+const { currentPath, lang } = Astro.props;
+const t = useTranslations(lang);
+
+const homePath = getHomePath(lang);
+const aboutPath = getLocalePath(lang, 'about');
+const productsPath = getLocalePath(lang, 'products');
+const howToStartPath = getLocalePath(lang, 'how-to-start');
+const contactPath = getLocalePath(lang, 'contact');
+---
+
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-gray-900/80 backdrop-blur-md">
+	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+		<div class="relative flex h-16 items-center justify-between">
+			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+				<!-- Mobile menu button-->
+				<button type="button" class="hs-collapse-toggle relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" data-hs-collapse="#mobile-menu">
+					<span class="absolute -inset-0.5"></span>
+					<span class="sr-only">Open main menu</span>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="hs-collapse-open:hidden size-6">
+						<path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="hs-collapse-open:block hidden size-6">
+						<path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</button>
+			</div>
+			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+				<div class="flex shrink-0 items-center">
+					<a href={homePath}>
+						<Image src={logoClise} alt={t('footer.company')} class="h-8 w-auto" />
+					</a>
+				</div>
+				<div class="hidden sm:ml-6 sm:block">
+					<div class="flex space-x-4">
+						<a
+							href={productsPath}
+							aria-current={currentPath.startsWith(productsPath) ? 'page' : undefined}
+							class:list={[
+								'rounded-md px-3 py-2 text-sm font-medium',
+								currentPath.startsWith(productsPath)
+									? 'bg-white/5 text-white'
+									: 'text-gray-300 hover:bg-white/5 hover:text-white'
+							]}
+						>
+							{t('nav.products')}
+						</a>
+						<a
+							href={howToStartPath}
+							aria-current={currentPath === howToStartPath ? 'page' : undefined}
+							class:list={[
+								'rounded-md px-3 py-2 text-sm font-medium',
+								currentPath === howToStartPath
+									? 'bg-white/5 text-white'
+									: 'text-gray-300 hover:bg-white/5 hover:text-white'
+							]}
+						>
+							{t('nav.howToStart')}
+						</a>
+						<a
+							href={aboutPath}
+							aria-current={currentPath === aboutPath ? 'page' : undefined}
+							class:list={[
+								'rounded-md px-3 py-2 text-sm font-medium',
+								currentPath === aboutPath
+									? 'bg-white/5 text-white'
+									: 'text-gray-300 hover:bg-white/5 hover:text-white'
+							]}
+						>
+							{t('nav.about')}
+						</a>
+						<a
+							href={contactPath}
+							aria-current={currentPath === contactPath ? 'page' : undefined}
+							class:list={[
+								'rounded-md px-3 py-2 text-sm font-medium',
+								currentPath === contactPath
+									? 'bg-white/5 text-white'
+									: 'text-gray-300 hover:bg-white/5 hover:text-white'
+							]}
+						>
+							{t('nav.contact')}
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="absolute inset-y-0 right-0 flex items-center gap-x-6 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+				<!-- <a href={contactPath} class="rounded-md bg-indigo-500 px-3.5 py-2 text-sm font-medium text-white hover:bg-sky-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+					{t('cta.getQuote')}
+				</a> -->
+				<LanguageSwitcher />
+				<!-- <ThemeSwitcher /> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Mobile menu -->
+	<div id="mobile-menu" class="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300 sm:hidden" aria-labelledby="mobile-menu-toggle" role="region">
+		<div class="space-y-1 px-2 pt-2 pb-3">
+			<a
+				href={productsPath}
+				aria-current={currentPath.startsWith(productsPath) ? 'page' : undefined}
+				class:list={[
+					'block rounded-md px-3 py-2 text-sm',
+					currentPath.startsWith(productsPath)
+						? 'bg-white/5 text-white'
+						: 'text-gray-300 hover:bg-white/5 hover:text-white'
+				]}
+			>
+				{t('nav.products')}
+			</a>
+			<a
+				href={howToStartPath}
+				aria-current={currentPath === howToStartPath ? 'page' : undefined}
+				class:list={[
+					'block rounded-md px-3 py-2 text-sm',
+					currentPath === howToStartPath
+						? 'bg-white/5 text-white'
+						: 'text-gray-300 hover:bg-white/5 hover:text-white'
+				]}
+			>
+				{t('nav.howToStart')}
+			</a>
+			<a
+				href={aboutPath}
+				aria-current={currentPath === aboutPath ? 'page' : undefined}
+				class:list={[
+					'block rounded-md px-3 py-2 text-sm',
+					currentPath === aboutPath
+						? 'bg-white/5 text-white'
+						: 'text-gray-300 hover:bg-white/5 hover:text-white'
+				]}
+			>
+				{t('nav.about')}
+			</a>
+			<a
+				href={contactPath}
+				aria-current={currentPath === contactPath ? 'page' : undefined}
+				class:list={[
+					'block rounded-md px-3 py-2 text-sm',
+					currentPath === contactPath
+						? 'bg-white/5 text-white'
+						: 'text-gray-300 hover:bg-white/5 hover:text-white'
+				]}
+			>
+				{t('nav.contact')}
+			</a>
+			<a href={contactPath} class="block rounded-md bg-indigo-700 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-800">
+				{t('cta.getQuote')}
+			</a>
+		</div>
+	</div>
+</nav>

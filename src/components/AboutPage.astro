@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import { useTranslations, getLocalePath } from '../i18n/utils';
+import type { Locale } from '../i18n/utils';
+import outsideImg from '../assets/images/about/outside2.jpg';
+import plantImg from '../assets/images/about/plant.jpg';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
+const contactPath = getLocalePath(lang, 'contact');
+
+const stats = [
+	{ value: '15+', key: 'about.stats.years' },
+	{ value: '550K+', key: 'about.stats.products' },
+	{ value: '120', key: 'about.stats.countries' },
+	{ value: '800+', key: 'about.stats.clients' },
+] as const;
+---
+
+<div class="bg-gray-900">
+	<!-- Hero -->
+	<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+		<h1 class="fade-in text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+			{t('about.hero.title')}
+		</h1>
+		<p class="fade-in fade-in-delay-100 mt-6 max-w-3xl text-2xl text-gray-400">
+			{t('about.hero.subtitle')}
+		</p>
+	</div>
+
+	<!-- Mission + Stats + Images grid -->
+	<div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8">
+		<div class="grid gap-16 lg:grid-cols-[2fr_3fr]">
+			<!-- Left: Mission on top, Stats below -->
+			<div class="flex flex-col justify-between gap-16">
+				<div class="fade-in">
+					<h2 class="text-sm font-semibold uppercase tracking-wide text-indigo-500">
+						{t('about.mission.heading')}
+					</h2>
+					<p class="mt-6 text-lg/8 text-gray-300">
+						{t('about.mission.p1')}
+					</p>
+				</div>
+				<div class="fade-in grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-2">
+					{stats.map((stat) => (
+						<div>
+							<p class="text-4xl font-semibold tracking-tight text-white">{stat.value}</p>
+							<p class="mt-1 text-sm font-medium text-gray-400">{t(stat.key)}</p>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<!-- Right: Single image -->
+			<div class="fade-in fade-in-delay-200 self-center overflow-hidden rounded-2xl ring-1 ring-white/10">
+				<Image src={outsideImg} alt="Clise" widths={[400, 800]} sizes="(max-width: 1024px) 100vw, 60vw" class="block w-full object-cover aspect-[16/9]" loading="lazy" />
+			</div>
+		</div>
+	</div>
+
+	<!-- Story continuation -->
+	<div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8">
+		<div class="fade-in grid gap-12 lg:grid-cols-2">
+			<p class="text-lg/8 text-gray-300">
+				{t('about.mission.p2')}
+			</p>
+			<p class="text-lg/8 text-gray-300">
+				{t('about.mission.p3')}
+			</p>
+		</div>
+	</div>
+
+	<!-- Plant -->
+	<div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8">
+		<h2 class="fade-in text-3xl font-semibold tracking-tight text-white sm:text-4xl text-center">
+			{t('about.plant.title')}
+		</h2>
+		<div class="fade-in fade-in-delay-100 mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl ring-1 ring-white/10">
+			<Image src={plantImg} alt={t('about.plant.title')} widths={[400, 800]} sizes="(max-width: 896px) 100vw, 800px" class="block w-full object-cover" loading="lazy" />
+		</div>
+	</div>
+
+	<!-- Values -->
+	<div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8">
+		<div class="mx-auto max-w-2xl text-center">
+			<h2 class="fade-in text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+				{t('about.values.heading')}
+			</h2>
+			<p class="fade-in fade-in-delay-100 mt-4 text-lg/8 text-gray-300">
+				{t('about.values.subtitle')}
+			</p>
+		</div>
+
+		<div class="fade-in fade-in-delay-200 mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+			<!-- Quality -->
+			<div class="rounded-2xl bg-gray-800 p-8 ring-1 ring-white/10">
+				<div class="flex size-16 items-center justify-center rounded-lg bg-indigo-500/10 ring-1 ring-indigo-500/20">
+					<svg class="size-9 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M19.03 8.96c.06-.24.09-.49.09-.74 0-1.84-1.5-3.33-3.33-3.33-.25 0-.5.03-.74.09-.53-1.18-1.71-1.97-3.04-1.97S9.5 3.8 8.97 4.98a3 3 0 0 0-.74-.09c-1.84 0-3.33 1.5-3.33 3.33 0 .25.03.5.09.74-1.18.53-1.97 1.71-1.97 3.04s.79 2.51 1.97 3.04c-.06.24-.09.49-.09.74 0 1.84 1.5 3.33 3.33 3.33.25 0 .5-.03.74-.09.53 1.18 1.71 1.97 3.04 1.97s2.51-.79 3.04-1.97c.24.06.49.09.74.09 1.84 0 3.33-1.5 3.33-3.33 0-.25-.03-.5-.09-.74C20.21 14.51 21 13.33 21 12s-.79-2.51-1.97-3.04m-.75 5.29-.55.15.22.53c.11.27.17.57.17.86 0 1.29-1.05 2.33-2.33 2.33-.29 0-.59-.06-.86-.17l-.53-.22-.15.55c-.27 1.02-1.19 1.73-2.25 1.73s-1.98-.71-2.25-1.73l-.15-.55-.53.22c-.27.11-.57.17-.86.17-1.29 0-2.33-1.05-2.33-2.33 0-.29.06-.59.17-.86l.22-.53-.55-.15C4.7 13.98 4 13.06 4 12s.71-1.98 1.72-2.25l.55-.15-.22-.53c-.11-.27-.17-.57-.17-.86 0-1.29 1.05-2.33 2.33-2.33.29 0 .59.06.86.17l.53.22.15-.55c.27-1.02 1.19-1.73 2.25-1.73s1.98.71 2.25 1.73l.15.55.53-.22c.27-.11.57-.17.86-.17 1.29 0 2.33 1.05 2.33 2.33 0 .29-.06.59-.17.86l-.22.53.55.15C19.3 10.02 20 10.94 20 12s-.71 1.98-1.72 2.25"></path>
+						<path d="m11 13.29-1.65-1.64-.7.7L11 14.71l4.39-4.36-.7-.7z"></path>
+					</svg>
+				</div>
+				<h3 class="mt-6 text-lg font-semibold text-white">{t('about.values.quality.title')}</h3>
+				<p class="mt-3 text-sm/6 text-gray-400">{t('about.values.quality.description')}</p>
+			</div>
+
+			<!-- Innovation -->
+			<div class="rounded-2xl bg-gray-800 p-8 ring-1 ring-white/10">
+				<div class="flex size-16 items-center justify-center rounded-lg bg-indigo-500/10 ring-1 ring-indigo-500/20">
+					<svg class="size-9 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M13.39 3.16a5.88 5.88 0 0 0-5.04 1.12A6.2 6.2 0 0 0 6 9.17c0 2.1.91 3.16 1.95 4.4.29.34.59.7.9 1.1.92 1.22 1.14 2.84 1.15 2.84v2c0 .83.67 1.5 1.5 1.5h1c.83 0 1.5-.67 1.5-1.5v-1.95c.03-.17.29-1.49 1.18-2.92.35-.57.74-1.04 1.11-1.5.83-1.01 1.61-1.96 1.7-3.63.15-2.95-1.82-5.68-4.6-6.33ZM13 19.5c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5V18h2zm2.52-7.01c-.38.46-.81.98-1.19 1.61-.73 1.19-1.07 2.29-1.22 2.9h-2.18c-.13-.65-.47-1.89-1.27-2.94-.32-.42-.63-.79-.93-1.14-1-1.17-1.72-2.02-1.72-3.75 0-1.62.72-3.11 1.97-4.1C9.87 4.37 10.91 4 12 4c.39 0 .78.05 1.17.14 2.31.55 3.96 2.83 3.83 5.31-.07 1.34-.69 2.09-1.47 3.05Z"></path>
+						<path d="M8 9h1c0-1.65 1.35-3 3-3V5C9.79 5 8 6.79 8 9"></path>
+					</svg>
+				</div>
+				<h3 class="mt-6 text-lg font-semibold text-white">{t('about.values.innovation.title')}</h3>
+				<p class="mt-3 text-sm/6 text-gray-400">{t('about.values.innovation.description')}</p>
+			</div>
+
+			<!-- Sustainability -->
+			<div class="rounded-2xl bg-gray-800 p-8 ring-1 ring-white/10">
+				<div class="flex size-16 items-center justify-center rounded-lg bg-indigo-500/10 ring-1 ring-indigo-500/20">
+					<svg class="size-9 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+						<path d="m20.32,3.27c-.39-.07-9.59-1.6-14.45,3.25-.89.89-1.63,2-2.19,3.29-1.33,3.08-.69,6.47,1.67,8.83,1.54,1.54,3.53,2.35,5.58,2.35,1.08,0,2.19-.23,3.25-.69,1.29-.56,2.4-1.29,3.29-2.19,4.86-4.86,3.32-14.06,3.25-14.45-.04-.21-.2-.37-.41-.41Zm-3.55,14.15c-.8.8-1.81,1.47-2.98,1.98-2.23.97-4.64.73-6.57-.54.14-.63.31-1.27.54-1.88,1.15-3.25,3.4-6.04,6.25-7.97-3.67,1.79-6.61,4.89-8.2,8.65-1.84-2.05-2.32-4.85-1.2-7.43.51-1.18,1.17-2.18,1.98-2.98,2.68-2.68,6.98-3.23,10.01-3.23,1.47,0,2.64.13,3.2.2.23,1.72.95,9.24-3.03,13.21Z"></path>
+					</svg>
+				</div>
+				<h3 class="mt-6 text-lg font-semibold text-white">{t('about.values.sustainability.title')}</h3>
+				<p class="mt-3 text-sm/6 text-gray-400">{t('about.values.sustainability.description')}</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- CTA -->
+	<div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8">
+		<div class="fade-in rounded-3xl bg-gray-800 px-8 py-16 ring-1 ring-white/10 text-center sm:px-16">
+			<h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+				{t('about.cta.heading')}
+			</h2>
+			<p class="mt-4 text-lg/8 text-gray-300">
+				{t('about.cta.subtitle')}
+			</p>
+			<a
+				href={contactPath}
+				class="mt-8 inline-flex items-center rounded-md bg-indigo-800 px-6 py-3 text-base font-medium text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 transition-colors"
+			>
+				{t('cta.getQuote')}
+			</a>
+		</div>
+	</div>
+</div>

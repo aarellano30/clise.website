@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/utils';
+import ProductCard from './ProductCard.astro';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
+
+const categories = ['textiles', 'promotional', 'automotive', 'equipment', 'bottles'] as const;
+
+const products = (await getCollection('products', ({ id }) => id.startsWith(lang + '/')))
+	.sort((a, b) => a.id.localeCompare(b.id));
+---
+
+<div class="bg-gray-900">
+	<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+		<div class="max-w-2xl">
+			<h1 class="fade-in text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">
+				{t('products.title')}
+			</h1>
+			<p class="fade-in fade-in-delay-100 mt-6 text-lg/8 text-gray-300">
+				{t('products.subtitle')}
+			</p>
+		</div>
+
+		<div class="fade-in fade-in-delay-200 mt-16 flex flex-col gap-10 lg:flex-row">
+			<!-- Sidebar -->
+			<nav class="shrink-0 lg:w-56">
+				<h3 class="mb-5 text-sm font-semibold uppercase tracking-wide text-indigo-500">{t('products.applications')}</h3>
+				<ul class="flex flex-wrap gap-2 lg:flex-col lg:gap-1" id="category-filters">
+					<li>
+						<button
+							data-category="all"
+							class="category-btn w-full rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20"
+						>
+							{t('products.viewAll')}
+						</button>
+					</li>
+					{categories.map((cat) => (
+						<li>
+							<button
+								data-category={cat}
+								class="category-btn w-full rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors text-gray-400 hover:text-white hover:bg-gray-800"
+							>
+								{t(`products.category.${cat}`)}
+							</button>
+						</li>
+					))}
+				</ul>
+			</nav>
+
+			<!-- Product grid -->
+			<div class="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3" id="products-grid">
+				{products.map((product) => {
+					const slug = product.id.replace(`${lang}/`, '');
+					const cats = (product.data.categories ?? []).join(',');
+					return (
+						<div class="product-item transition-opacity duration-250" data-categories={cats}>
+							<ProductCard
+								name={product.data.name}
+								slug={slug}
+								description={product.data.description}
+								lang={lang}
+							/>
+						</div>
+					);
+				})}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	const buttons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+	const items = document.querySelectorAll<HTMLElement>('.product-item');
+
+	const activeClass = 'bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20';
+	const inactiveClass = 'text-gray-400 hover:text-white hover:bg-gray-800';
+
+	buttons.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const category = btn.dataset.category;
+
+			buttons.forEach((b) => {
+				b.className = `category-btn w-full rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors ${inactiveClass}`;
+			});
+			btn.className = `category-btn w-full rounded-lg px-4 py-2.5 text-left text-sm font-medium transition-colors ${activeClass}`;
+
+			// Fade out
+			items.forEach((item) => item.style.opacity = '0');
+
+			setTimeout(() => {
+				items.forEach((item) => {
+					if (category === 'all') {
+						item.style.display = '';
+					} else {
+						const cats = (item.dataset.categories ?? '').split(',');
+						item.style.display = cats.includes(category!) ? '' : 'none';
+					}
+				});
+				// Fade in
+				requestAnimationFrame(() => {
+					items.forEach((item) => {
+						if (item.style.display !== 'none') item.style.opacity = '1';
+					});
+				});
+			}, 200);
+		});
+	});
+</script>

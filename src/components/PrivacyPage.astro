@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { Locale } from '../i18n/utils';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+
+const entries = await getCollection('legal');
+const entry = entries.find((e) => e.id === `privacy-${lang}`);
+if (!entry) throw new Error(`Missing privacy-${lang}.md`);
+
+const { Content } = await render(entry);
+---
+
+<div class="bg-gray-900">
+	<div class="mx-auto max-w-3xl px-6 py-24 sm:py-32 lg:px-8">
+		<h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+			{entry.data.title}
+		</h1>
+		<div class="prose prose-invert prose-indigo mt-10 max-w-none">
+			<Content />
+		</div>
+	</div>
+</div>

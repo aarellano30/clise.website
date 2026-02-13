@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductPage from '../../components/ProductPage.astro';
+
+export async function getStaticPaths() {
+	const products = await getCollection('products', ({ id }) => id.startsWith('es/'));
+	return products.map((entry) => ({
+		params: { slug: entry.id.replace('es/', '') },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+---
+
+<Layout title={`${entry.data.name} - Clise`}>
+	<ProductPage entry={entry} />
+</Layout>

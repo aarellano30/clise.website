@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactPage from '../components/ContactPage.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('es');
+---
+
+<Layout title={`${t('contact.title')} - ${t('footer.company')}`}>
+	<ContactPage />
+</Layout>

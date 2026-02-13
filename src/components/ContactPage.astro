@@ -1,0 +1,193 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/utils';
+
+const lang = (Astro.currentLocale || 'es') as Locale;
+const t = useTranslations(lang);
+---
+
+<div class="relative isolate bg-gray-900">
+	<!-- Background gradient decoration -->
+	<div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+		<!-- Left column: heading + contact info -->
+		<div class="relative px-6 pt-24 pb-10 sm:pt-32 lg:static lg:px-8 lg:py-48">
+			<div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+				<h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+					{t('contact.title')}
+				</h1>
+				<p class="mt-6 text-lg/8 text-gray-300">
+					{t('contact.description')}
+				</p>
+				<p class="mt-2 text-lg/8 text-gray-300">
+					{t('contact.description2')}
+				</p>
+				<dl class="mt-10 space-y-4 text-base/7 text-gray-300">
+					<div class="flex gap-x-4">
+						<dt class="flex-none">
+							<span class="sr-only">Address</span>
+							<svg class="size-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M15.5 10c0-1.93-1.57-3.5-3.5-3.5S8.5 8.07 8.5 10s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5m-6 0a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1-5 0"></path><path d="M11.71 20.91c.09.06.19.09.29.09s.21-.03.29-.09c.27-.2 6.73-4.94 6.71-10.79 0-3.92-3.14-7.11-7-7.11S5 6.2 5 10.12c-.03 5.86 6.43 10.6 6.71 10.8ZM12 4c3.31 0 6 2.74 6 6.11.02 4.67-4.76 8.77-6 9.76-1.24-.99-6.02-5.09-6-9.76C6 6.74 8.69 4 12 4"></path>
+							</svg>
+						</dt>
+						<dd>{t('contact.address')}</dd>
+					</div>
+					<div class="flex gap-x-4">
+						<dt class="flex-none">
+							<span class="sr-only">Telephone</span>
+							<svg class="size-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M17.48 20.98h.1c.66 0 1.27-.32 1.64-.86l.81-1.18c.31-.44.42-.98.32-1.51s-.4-.99-.86-1.29l-2.3-1.53c-.82-.55-1.91-.42-2.58.31l-1.01 1.09c-.08.09-.21.11-.31.05-.7-.4-2.04-1.24-3.09-2.29s-1.88-2.38-2.28-3.08c-.06-.1-.04-.23.05-.31l1.09-1.01a2 2 0 0 0 .31-2.58l-1.53-2.3c-.3-.45-.76-.75-1.29-.86-.53-.1-1.07.01-1.51.32l-1.18.81c-.57.4-.89 1.05-.86 1.75.09 1.8.7 6.4 4.38 10.08s8.28 4.29 10.08 4.38ZM4.44 5.59l1.18-.81c.22-.15.49-.21.76-.16s.49.2.64.43l1.53 2.3c.27.41.21.95-.15 1.29L7.31 9.65c-.43.4-.53 1.03-.24 1.54.43.75 1.32 2.17 2.44 3.29 1.13 1.13 2.55 2.02 3.29 2.44.51.29 1.14.2 1.54-.24l1.01-1.09c.34-.36.88-.43 1.29-.15l2.3 1.53c.23.15.38.38.43.65s0 .53-.16.76l-.81 1.18c-.2.29-.54.45-.88.43-1.69-.08-5.99-.65-9.42-4.09-3.44-3.44-4-7.74-4.09-9.43-.02-.35.14-.68.43-.87Z"></path>
+							</svg>
+						</dt>
+						<dd><a href={`tel:${t('contact.phoneNumber').replace(/[\s()-]/g, '')}`} class="hover:text-white">{t('contact.phoneNumber')}</a></dd>
+					</div>
+					<div class="flex gap-x-4">
+						<dt class="flex-none">
+							<span class="sr-only">Email</span>
+							<svg class="size-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M12.28 3.08a.5.5 0 0 0-.55 0L3.22 8.75C3.08 8.84 3 9 3 9.17V19.5c0 .83.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5V9.17c0-.17-.08-.32-.22-.42zM12 4.1l7.6 5.07-7.6 5.07-7.6-5.07zM19.5 20h-15c-.28 0-.5-.22-.5-.5v-9.4l7.72 5.15c.08.06.18.08.28.08s.19-.03.28-.08L20 10.1v9.4c0 .28-.22.5-.5.5"></path>
+							</svg>
+						</dt>
+						<dd><a href={`mailto:${t('contact.emailAddress')}`} class="hover:text-white">{t('contact.emailAddress')}</a></dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+
+		<!-- Right column: form -->
+		<form
+			name="contact"
+			method="POST"
+			data-netlify="true"
+			data-netlify-honeypot="bot-field"
+			class="px-6 pt-10 pb-24 sm:pb-32 lg:px-8 lg:py-48"
+			id="contact-form"
+		>
+			<div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+				<input type="hidden" name="form-name" value="contact" />
+				<input type="hidden" name="lang" value={lang} />
+				<p class="hidden">
+					<label>Don't fill this out: <input name="bot-field" /></label>
+				</p>
+
+				<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+					<!-- Full name (spans full width) -->
+					<div class="sm:col-span-2">
+						<label for="name" class="block text-sm/6 font-semibold text-white">
+							{t('contact.name')}
+						</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							required
+							autocomplete="name"
+							class="mt-2.5 block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500/90 sm:text-sm/6"
+						/>
+					</div>
+
+					<!-- Email -->
+					<div>
+						<label for="email" class="block text-sm/6 font-semibold text-white">
+							{t('contact.email')}
+						</label>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							required
+							autocomplete="email"
+							class="mt-2.5 block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500/90 sm:text-sm/6"
+						/>
+					</div>
+
+					<!-- WhatsApp -->
+					<div>
+						<label for="whatsapp" class="block text-sm/6 font-semibold text-white">
+							{t('contact.whatsapp')}
+						</label>
+						<input
+							type="tel"
+							inputmode="tel"
+							name="whatsapp"
+							id="whatsapp"
+							autocomplete="tel"
+							placeholder="+52 271 123 4567"
+							class="mt-2.5 block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-500/90 sm:text-sm/6"
+						/>
+						<p class="mt-1.5 mb-2 text-xs text-gray-400">{t('contact.whatsappHint')}</p>
+					</div>
+
+					<!-- How did you hear about us -->
+					<div class="sm:col-span-2">
+						<label for="how" class="block text-sm/6 font-semibold text-white">
+							{t('contact.howDidYouHear')}
+						</label>
+						<select
+							name="how"
+							id="how"
+							required
+							class="mt-2.5 block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500/90 sm:text-sm/6"
+						>
+							<option value="" disabled selected>{t('contact.howOptions.select')}</option>
+							<option value="google">{t('contact.howOptions.google')}</option>
+							<option value="social">{t('contact.howOptions.social')}</option>
+							<option value="referral">{t('contact.howOptions.referral')}</option>
+							<option value="event">{t('contact.howOptions.event')}</option>
+							<option value="other">{t('contact.howOptions.other')}</option>
+						</select>
+					</div>
+
+					<!-- Message -->
+					<div class="sm:col-span-2">
+						<label for="message" class="block text-sm/6 font-semibold text-white">
+							{t('contact.message')}
+						</label>
+						<textarea
+							name="message"
+							id="message"
+							required
+							rows="4"
+							class="mt-2.5 block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500/90 sm:text-sm/6"
+						></textarea>
+					</div>
+				</div>
+
+				<div class="mt-8 flex justify-center">
+					<button
+						type="submit"
+						class="inline-flex items-center rounded-md bg-indigo-800 px-6 py-3 text-base font-medium text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-800 transition-colors"
+					>
+						{t('contact.submit')}
+					</button>
+				</div>
+
+				<!-- Success message (hidden by default) -->
+				<div id="contact-success" class="mt-4 hidden rounded-md bg-emerald-500/10 px-4 py-3 text-center text-emerald-400 ring-1 ring-emerald-500/20">
+					{t('contact.success')}
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	const form = document.getElementById('contact-form') as HTMLFormElement;
+	const success = document.getElementById('contact-success')!;
+
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const data = new FormData(form);
+
+		try {
+			await fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(data as any).toString(),
+			});
+			form.reset();
+			success.classList.remove('hidden');
+		} catch {
+			form.submit();
+		}
+	});
+</script>
