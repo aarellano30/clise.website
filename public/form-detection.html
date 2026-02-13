@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Netlify Form Detection</title>
+  <!-- This file exists solely for Netlify to detect forms at build time -->
+</head>
+<body style="display:none;">
+  <!-- Spanish Contact Form -->
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    netlify
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="lang" />
+    <p class="hidden">
+      <label>Don't fill this out: <input name="bot-field" /></label>
+    </p>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="whatsapp" />
+    <select name="how">
+      <option value="google">Google</option>
+      <option value="social">Social</option>
+      <option value="referral">Referral</option>
+      <option value="event">Event</option>
+      <option value="other">Other</option>
+    </select>
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

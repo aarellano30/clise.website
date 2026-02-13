@@ -179,7 +179,8 @@ const t = useTranslations(lang);
 		const data = new FormData(form);
 
 		try {
-			await fetch('/', {
+			// Post to the current page (not "/") for Netlify Forms to work
+			await fetch(window.location.pathname, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(data as any).toString(),
