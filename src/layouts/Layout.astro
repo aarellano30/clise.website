@@ -38,7 +38,9 @@ const altPath = getAlternatePath(currentPath, altLang);
 
 	<!-- Preload fonts to prevent FOUT -->
 	<link rel="preload" href="/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="/fonts/inter-latin-ext-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+	<!-- Preload video poster (LCP element) -->
+	<link rel="preload" href="/videos/trimflex-spider-padel-poster.webp" as="image" type="image/webp" />
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 	<link rel="icon" type="image/png" href="/favicon.png" />

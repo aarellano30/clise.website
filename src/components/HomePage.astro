@@ -43,7 +43,7 @@ const productsPath = getLocalePath(lang, 'products');
 					muted
 					loop
 					playsinline
-					poster="/videos/trimflex-spider-padel-poster.jpg"
+					poster="/videos/trimflex-spider-padel-poster.webp"
 				>
 					<source src="/videos/trimflex-spider-padel.mp4" type="video/mp4" />
 				</video>
@@ -80,8 +80,8 @@ const productsPath = getLocalePath(lang, 'products');
 
 			<!-- Banner -->
 			<div class="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden mt-12 lg:col-span-2">
-				<Image src={bannerMobile} alt="Clise emblems" widths={[640]} sizes="100vw" class="block w-full object-cover sm:hidden" loading="eager" fetchpriority="high" />
-				<Image src={bannerEmblems} alt="Clise emblems" widths={[640, 1280]} sizes="100vw" class="hidden w-full object-cover sm:block" loading="eager" fetchpriority="high" />
+				<Image src={bannerMobile} alt="Clise emblems" widths={[640]} sizes="100vw" class="block w-full object-cover sm:hidden" loading="lazy" />
+				<Image src={bannerEmblems} alt="Clise emblems" widths={[640, 1280]} sizes="100vw" class="hidden w-full object-cover sm:block" loading="lazy" />
 			</div>
 		</div>
 	</div>
