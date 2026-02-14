@@ -5,9 +5,9 @@ import type { Locale } from '../i18n/utils';
 import bannerEmblems from '../assets/images/home/banner-vertical-crop.webp';
 import bannerMobile from '../assets/images/home/banner-double-cropped.webp';
 import textilesImg from '../assets/images/home/textiles0.webp';
-import sportsImg from '../assets/images/home/sports0.jpg';
-import promoImg from '../assets/images/home/promo0.jpeg';
-import autoImg from '../assets/images/home/auto0.png';
+import sportsImg from '../assets/images/home/sports0.webp';
+import promoImg from '../assets/images/home/promo0.webp';
+import autoImg from '../assets/images/home/auto0.webp';
 import avatar1 from '../assets/images/avatars/avatar-1.webp';
 import avatar2 from '../assets/images/avatars/avatar-2.webp';
 import avatar3 from '../assets/images/avatars/avatar-3.webp';
@@ -80,8 +80,8 @@ const productsPath = getLocalePath(lang, 'products');
 
 			<!-- Banner -->
 			<div class="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden mt-12 lg:col-span-2">
-				<Image src={bannerMobile} alt="Clise emblems" widths={[640]} sizes="100vw" class="block w-full object-cover sm:hidden" />
-				<Image src={bannerEmblems} alt="Clise emblems" widths={[640, 1280]} sizes="100vw" class="hidden w-full object-cover sm:block" />
+				<Image src={bannerMobile} alt="Clise emblems" widths={[640]} sizes="100vw" class="block w-full object-cover sm:hidden" loading="eager" fetchpriority="high" />
+				<Image src={bannerEmblems} alt="Clise emblems" widths={[640, 1280]} sizes="100vw" class="hidden w-full object-cover sm:block" loading="eager" fetchpriority="high" />
 			</div>
 		</div>
 	</div>
@@ -97,7 +97,7 @@ const productsPath = getLocalePath(lang, 'products');
 			<div class="relative lg:row-span-2">
 				<div class="absolute inset-px rounded-lg bg-gray-800 lg:rounded-l-4xl"></div>
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-					<Image src={textilesImg} alt="Textiles" class="absolute inset-0 size-full object-cover" />
+					<Image src={textilesImg} alt="Textiles" widths={[400, 800]} sizes="(max-width: 1024px) 100vw, 33vw" class="absolute inset-0 size-full object-cover" loading="lazy" />
 					<div class="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-900/60 to-transparent"></div>
 					<div class="relative px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
 						<p class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center flex items-center max-lg:justify-center gap-2">
@@ -115,7 +115,7 @@ const productsPath = getLocalePath(lang, 'products');
 			<div class="relative max-lg:row-start-1">
 				<div class="absolute inset-px rounded-lg bg-gray-800 max-lg:rounded-t-4xl"></div>
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
-					<Image src={promoImg} alt="Promotional items" class="absolute inset-0 size-full object-cover" />
+					<Image src={promoImg} alt="Promotional items" widths={[400, 800]} sizes="(max-width: 1024px) 100vw, 33vw" class="absolute inset-0 size-full object-cover" loading="lazy" />
 					<div class="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-900/60 to-transparent"></div>
 					<div class="relative px-8 pt-8 sm:px-10 sm:pt-10">
 						<p class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center flex items-center max-lg:justify-center gap-2">
@@ -133,7 +133,7 @@ const productsPath = getLocalePath(lang, 'products');
 			<div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
 				<div class="absolute inset-px rounded-lg bg-gray-800"></div>
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-					<Image src={autoImg} alt="Automotive" class="absolute inset-0 size-full object-cover" />
+					<Image src={autoImg} alt="Automotive" widths={[400, 800]} sizes="(max-width: 1024px) 100vw, 33vw" class="absolute inset-0 size-full object-cover" loading="lazy" />
 					<div class="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-900/20 to-transparent"></div>
 					<div class="relative px-8 pt-8 sm:px-10 sm:pt-10">
 						<p class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center flex items-center max-lg:justify-center gap-2">
@@ -151,7 +151,7 @@ const productsPath = getLocalePath(lang, 'products');
 			<div class="relative lg:row-span-2">
 				<div class="absolute inset-px rounded-lg bg-gray-800 max-lg:rounded-b-4xl lg:rounded-r-4xl"></div>
 				<div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
-					<Image src={sportsImg} alt="Sports teams" class="absolute inset-0 size-full object-cover" />
+					<Image src={sportsImg} alt="Sports teams" widths={[400, 800]} sizes="(max-width: 1024px) 100vw, 33vw" class="absolute inset-0 size-full object-cover" loading="lazy" />
 					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-gray-900/20 to-transparent"></div>
 					<div class="relative px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
 						<p class="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center flex items-center max-lg:justify-center gap-2">
