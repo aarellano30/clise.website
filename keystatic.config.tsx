@@ -5,7 +5,7 @@ const isProd = import.meta.env.PROD;
 const storage = isProd
 	? {
 			kind: 'github' as const,
-			repo: `${import.meta.env.PUBLIC_KEYSTATIC_GITHUB_REPO_OWNER}/${import.meta.env.PUBLIC_KEYSTATIC_GITHUB_REPO_NAME}`,
+			repo: 'aarellano30/clise.website',
 		}
 	: { kind: 'local' as const };
 
@@ -54,6 +54,10 @@ export default config({
 						{ label: 'Equipos', value: 'equipment' },
 						{ label: 'Botellas', value: 'bottles' },
 					],
+				}),
+				featured: fields.checkbox({
+					label: 'Featured',
+					defaultValue: false,
 				}),
 				content: fields.markdoc({ label: 'Body Content' }),
 			},
