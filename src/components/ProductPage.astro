@@ -123,9 +123,9 @@ const contactPath = getLocalePath(lang, 'contact');
 
 		<!-- Gallery -->
 		{gallery.length > 0 && (
-			<div class="fade-in mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			<div class="fade-in mt-16 flex flex-wrap justify-center gap-4">
 				{gallery.map((src, i) => (
-					<div class="overflow-hidden rounded-xl ring-1 ring-white/10">
+					<div class="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] overflow-hidden rounded-xl ring-1 ring-white/10">
 						<Image src={src} alt={`${name} - ${i + 1}`} widths={[300, 600]} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" class="h-full w-full object-cover aspect-[4/3]" loading="lazy" />
 					</div>
 				))}

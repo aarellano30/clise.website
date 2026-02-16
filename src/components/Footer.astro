@@ -16,6 +16,7 @@ const howToStartPath = getLocalePath(lang, 'how-to-start');
 const contactPath = getLocalePath(lang, 'contact');
 
 const emblems = await getCollection('products', ({ id, data }) => id.startsWith(`${lang}/`) && data.type === 'emblem');
+const transfers = await getCollection('products', ({ id, data }) => id.startsWith(`${lang}/`) && data.type === 'transfer');
 ---
 
 <footer class="bg-[#0a0f1a]" aria-labelledby="footer-heading">
@@ -94,7 +95,16 @@ const emblems = await getCollection('products', ({ id, data }) => id.startsWith(
 				<div class="md:grid md:grid-cols-2 md:gap-8">
 					<div>
 						<h3 class="text-sm/6 font-semibold text-white">{t('footer.section.transfers')}</h3>
-						<p class="mt-6 text-sm/6 text-gray-400 italic">{t('footer.comingSoon')}</p>
+						<ul role="list" class="mt-6 space-y-4">
+						{transfers.map((product) => {
+							const slug = product.id.replace(`${lang}/`, '');
+							return (
+								<li>
+									<a href={`${productsPath}/${slug}`} class="text-sm/6 text-gray-300 hover:text-white">{product.data.name}</a>
+								</li>
+							);
+						})}
+					</ul>
 					</div>
 					<div class="mt-10 md:mt-0">
 						<h3 class="text-sm/6 font-semibold text-white">Legal</h3>

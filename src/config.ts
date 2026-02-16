@@ -6,6 +6,8 @@ export const siteConfig = {
 	fullName: 'Clise - Tecnología en Emblemas',
 
 	address: {
+		street: 'Carretera Córdoba-San Isidro Palotal #182',
+		colony: 'Col. Guadalupe Barreal',
 		locality: 'Córdoba',
 		region: 'Veracruz',
 		country: 'MX',
