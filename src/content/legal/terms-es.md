@@ -4,11 +4,11 @@ locale: es
 lastUpdated: 2025-02-01
 ---
 
-Bienvenido al sitio web de **Clise**. Al acceder y utilizar este sitio, usted acepta los siguientes términos y condiciones. Le recomendamos leerlos detenidamente.
+Bienvenido al sitio web de **Clisé**. Al acceder y utilizar este sitio, usted acepta los siguientes términos y condiciones. Le recomendamos leerlos detenidamente.
 
 ## 1. Uso del sitio web
 
-Este sitio web es propiedad y está operado por Clise. El contenido del sitio, incluyendo textos, imágenes, logotipos, gráficos y diseños, está protegido por las leyes de propiedad intelectual aplicables. Queda prohibida su reproducción, distribución o uso sin autorización previa por escrito.
+Este sitio web es propiedad y está operado por Clisé. El contenido del sitio, incluyendo textos, imágenes, logotipos, gráficos y diseños, está protegido por las leyes de propiedad intelectual aplicables. Queda prohibida su reproducción, distribución o uso sin autorización previa por escrito.
 
 ## 2. Productos y servicios
 
@@ -17,29 +17,29 @@ Las imágenes y descripciones de los productos en este sitio son de carácter in
 ## 3. Cotizaciones y pedidos
 
 - Las cotizaciones proporcionadas tienen una vigencia de 30 días naturales, salvo que se indique lo contrario.
-- Los pedidos mínimos son de 50 unidades por diseño, salvo acuerdo especial.
+- Los pedidos mínimos varían en cada tecnología. En emblemas Trimflex, Flatcrest, Topcrest y Dynamic aplican a partir de 50 piezas.
 - Los tiempos de producción y entrega se confirman al momento de la orden.
 - Los precios están sujetos a cambios sin previo aviso.
 
 ## 4. Propiedad intelectual
 
-El cliente garantiza que los diseños y logotipos proporcionados para la producción de emblemas son de su propiedad o cuenta con las licencias necesarias para su uso. Clise no se hace responsable por infracciones de propiedad intelectual de terceros derivadas de los diseños proporcionados por el cliente.
+El cliente garantiza que los diseños y logotipos proporcionados para la producción de emblemas son de su propiedad o cuenta con las licencias necesarias para su uso. Clisé no se hace responsable por infracciones de propiedad intelectual de terceros derivadas de los diseños proporcionados por el cliente.
 
 ## 5. Muestras digitales
 
-Antes de iniciar la producción, Clise proporcionará una muestra digital para aprobación del cliente. Una vez aprobada la muestra, cualquier cambio posterior podría generar costos adicionales y retrasos en la entrega.
+Antes de iniciar la producción, Clisé proporcionará una muestra digital para aprobación del cliente. Una vez aprobada la muestra, cualquier cambio posterior podría generar costos adicionales y retrasos en la entrega.
 
 ## 6. Envíos
 
-Clise realiza envíos a nivel nacional e internacional. Los costos de envío se calculan al momento de la cotización y pueden variar según destino, peso y volumen. El cliente es responsable de cualquier impuesto, arancel o cargo aduanero aplicable en envíos internacionales.
+Clisé realiza envíos a nivel nacional e internacional. Los costos de envío se calculan al momento de la cotización y pueden variar según destino, peso y volumen. El cliente es responsable de cualquier impuesto, arancel o cargo aduanero aplicable en envíos internacionales.
 
 ## 7. Limitación de responsabilidad
 
-Clise no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso de nuestros productos o de este sitio web. Nuestra responsabilidad máxima estará limitada al valor del pedido correspondiente.
+Clisé no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso de nuestros productos o de este sitio web. Nuestra responsabilidad máxima estará limitada al valor del pedido correspondiente.
 
 ## 8. Modificaciones
 
-Clise se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor a partir de su publicación en este sitio web.
+Clisé se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor a partir de su publicación en este sitio web.
 
 ## 9. Contacto
 

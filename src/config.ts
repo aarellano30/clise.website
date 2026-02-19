@@ -3,7 +3,7 @@
 export const siteConfig = {
 	url: 'https://clise.com.mx',
 	name: 'Clisé',
-	fullName: 'Clise - Tecnología en Emblemas',
+	fullName: 'Clisé - Tecnología en Emblemas',
 
 	address: {
 		street: 'Carretera Córdoba-San Isidro Palotal #182',
@@ -17,6 +17,7 @@ export const siteConfig = {
 		phone: '+52 (721) 717-2750',
 		email: 'info@clise.com',
 		whatsapp: '522711937295', // digits only, used for wa.me links
+		whatsappDisplay: '+52 271 193 7295',
 	},
 
 	description: {

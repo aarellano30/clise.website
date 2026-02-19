@@ -4,11 +4,11 @@ locale: en
 lastUpdated: 2025-02-01
 ---
 
-At **Clise** (hereinafter "the Company"), we are committed to protecting the privacy and personal data of our users, customers, and website visitors, in accordance with applicable data protection regulations.
+At **Clisé** (hereinafter "the Company"), we are committed to protecting the privacy and personal data of our users, customers, and website visitors, in accordance with applicable data protection regulations.
 
 ## 1. Data Controller
 
-Clise, located in Guadalajara, Jalisco, Mexico, is responsible for processing your personal data. For any inquiries related to this policy, you may contact us through our [contact form](/en/contact).
+Clisé, located in Guadalajara, Jalisco, Mexico, is responsible for processing your personal data. For any inquiries related to this policy, you may contact us through our [contact form](/en/contact).
 
 ## 2. Personal Data We Collect
 

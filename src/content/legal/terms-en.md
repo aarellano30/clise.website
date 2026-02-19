@@ -4,11 +4,11 @@ locale: en
 lastUpdated: 2025-02-01
 ---
 
-Welcome to the **Clise** website. By accessing and using this site, you agree to the following terms and conditions. We recommend reading them carefully.
+Welcome to the **Clisé** website. By accessing and using this site, you agree to the following terms and conditions. We recommend reading them carefully.
 
 ## 1. Use of the Website
 
-This website is owned and operated by Clise. The content of the site, including text, images, logos, graphics, and designs, is protected by applicable intellectual property laws. Reproduction, distribution, or use without prior written authorization is prohibited.
+This website is owned and operated by Clisé. The content of the site, including text, images, logos, graphics, and designs, is protected by applicable intellectual property laws. Reproduction, distribution, or use without prior written authorization is prohibited.
 
 ## 2. Products and Services
 
@@ -23,23 +23,23 @@ Product images and descriptions on this site are for informational purposes. Col
 
 ## 4. Intellectual Property
 
-The client warrants that the designs and logos provided for emblem production are their property or that they have the necessary licenses for their use. Clise is not responsible for third-party intellectual property infringements arising from designs provided by the client.
+The client warrants that the designs and logos provided for emblem production are their property or that they have the necessary licenses for their use. Clisé is not responsible for third-party intellectual property infringements arising from designs provided by the client.
 
 ## 5. Digital Samples
 
-Before starting production, Clise will provide a digital sample for client approval. Once the sample is approved, any subsequent changes may incur additional costs and delivery delays.
+Before starting production, Clisé will provide a digital sample for client approval. Once the sample is approved, any subsequent changes may incur additional costs and delivery delays.
 
 ## 6. Shipping
 
-Clise ships domestically and internationally. Shipping costs are calculated at the time of quote and may vary depending on destination, weight, and volume. The client is responsible for any taxes, tariffs, or customs charges applicable to international shipments.
+Clisé ships domestically and internationally. Shipping costs are calculated at the time of quote and may vary depending on destination, weight, and volume. The client is responsible for any taxes, tariffs, or customs charges applicable to international shipments.
 
 ## 7. Limitation of Liability
 
-Clise shall not be liable for indirect, incidental, or consequential damages arising from the use of our products or this website. Our maximum liability shall be limited to the value of the corresponding order.
+Clisé shall not be liable for indirect, incidental, or consequential damages arising from the use of our products or this website. Our maximum liability shall be limited to the value of the corresponding order.
 
 ## 8. Modifications
 
-Clise reserves the right to modify these terms and conditions at any time. Modifications will take effect upon publication on this website.
+Clisé reserves the right to modify these terms and conditions at any time. Modifications will take effect upon publication on this website.
 
 ## 9. Contact
 
